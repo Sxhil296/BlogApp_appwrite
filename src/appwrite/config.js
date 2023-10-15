@@ -77,7 +77,19 @@ export class Service {
     }
   }
 
-  async getAllPosts()
+  async getAllPosts(queries = [Query.equal("status", "active")]){
+    try {
+        return await this.databases.listDocuments(
+            conf.appwriteDatabaseId,
+            conf.appwriteCollectionId,
+            queries,
+        )
+    } catch (error) {
+        console.log("Apprite service :: getPosts :: error", error);
+        return false
+    }
+
+  }
 }
 
 const service = new Service();
