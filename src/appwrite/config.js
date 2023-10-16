@@ -119,6 +119,10 @@ export class Service {
   previewFile(fileId) {
     return this.bucket.getFilePreview(conf.appwriteBucketId, fileId);
   }
+
+  downloadFile(fileId){
+    return this.bucket.getFileDownload(conf.appwriteBucketId, fileId)
+  }
 }
 
 const service = new Service();
