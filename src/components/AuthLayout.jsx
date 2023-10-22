@@ -17,7 +17,7 @@ const Protected = ({ children, authentication = true }) => {
     setLoader(false);
   }, [authStatus, navigate, authentication]);
 
-  return <div>Protected</div>;
+  return loader ? <h1>Loading...</h1> : <>{children}</>;
 };
 
 export default Protected;
